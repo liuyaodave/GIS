@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?> <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+    <Folder>
+        <name>KML Server</name>
+        <NetworkLink>
+            <name>US States</name>
+            <Link>
+                <href>http://178.62.0.82/us_states.kml</href>
+                <refreshMode>onInterval</refreshMode>
+                <refreshInterval>20</refreshInterval>
+            </Link>
+        </NetworkLink>
+    </Folder>
+    <Folder>
+        <name>KML html</name>
+        <NetworkLink>
+            <name>US States</name>
+            <Link>
+                <href>http://178.62.0.82/html.kml</href>
+                <refreshMode>onInterval</refreshMode>
+                <refreshInterval>20</refreshInterval>
+            </Link>
+        </NetworkLink>
+    </Folder>
+    <Folder>
+        <name>KML Histogram</name>
+        <NetworkLink>
+            <name>US States</name>
+            <Link>
+                <href>http://178.62.0.82/histogram.kml</href>
+                <refreshMode>onInterval</refreshMode>
+                <refreshInterval>20</refreshInterval>
+            </Link>
+        </NetworkLink>
+    </Folder>
+</Document>
+</kml>

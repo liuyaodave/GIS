@@ -1,0 +1,36 @@
+<?php
+
+print "<link rel=‘stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css' integrity='sha384-MIwDKRSSImVFAZCVLtU0LMDdON6KVCrZHyVQQj6e8wIEJkW4tvwqXrbMIya1vriY' crossorigin='anonymous'>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js' integrity='sha384-ux8v3A6CPtOTqOzMKiuo3d/DomGaaClxFYdCu2HPMBEkf6x2xiDyJ7gkXU0MWwaD' crossorigin='anonymous'></script>
+	<table class='table table-hover table-inverse'>
+	  <thead>
+	    <tr>
+	      <th>No</th>
+	      <th>City Name</th>
+	      <th>Average Flat Price</th>
+	      <th>Average House Price</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <th scope='row'>1</th>
+	      <td>New York</td>
+	      <td>210</td>
+	      <td>180</td>
+	    </tr>
+	    <tr>
+	      <th scope='row'>2</th>
+	      <td>Washington</td>
+	      <td>190</td>
+	      <td>210</td>
+	    </tr>
+	    <tr>
+	      <th scope='row'>3</th>
+	      <td >California</td>
+	      <td>120</td>
+	      <td>180</td>
+	    </tr>
+	  </tbody>
+	</table>"
+
+?>
