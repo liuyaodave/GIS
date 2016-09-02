@@ -17,11 +17,17 @@ coord_Hawaii = city.find_one({"name": "Hawaii"})["coordinates"]
 
 record_no = city.count()
 
-check_point = open('check_point.txt','r')
+check_point = open('check_point_number.txt','r')
 
 check_point_version = check_point.read()
 
-if int(record_no) > int(check_point_version):
+check_point_date = open('check_point_date.txt','r')
+
+check_point_last_date = check_point_date.read()
+
+last_update_date = city.find_one({"id": record_no})["date"]
+
+if (int(record_no) > int(check_point_version) && (int(last_update_date)!=int(check_point_last_date))):
 
 	print "======== Generate New KML File ========"
 	coord = KML.coordinates(coord_Hawaii)
