@@ -1,50 +1,40 @@
+from pymongo import MongoClient
 from lxml import etree
 from pykml.factory import KML_ElementMaker as KML
-from pymongo import MongoClient
 import datetime
 
 client = MongoClient('localhost', 27017)
 
-db = client.google_ear
+db = client.google_eath
 
-collection = db.test_collection
+#print db.collection_names()
 
-
-coord = KML.coordinates("-159,21\n-159,22")
-lr = KML.LinearRing(coord)
-ob = KML.outerBoundaryIs(lr)
-am = KML.altitudeMode("clampToGround")
-pg = KML.Polygon(am, ob, id="g867")
-pm1 = KML.Placemark(pg)
-
-coord2 = KML.coordinates("-999\n000")
-lr2 = KML.LinearRing(coord2)
-ob2 = KML.outerBoundaryIs(lr2)
-am2 = KML.altitudeMode("clampToGround")
-pg2 = KML.Polygon(am2, ob2, id="g867")
-pm2 = KML.Placemark(pg2)
-
-l = [pm1, pm2]
-
-kml = KML.klm(l, xmlns="hello")
-
-print l
-
-print etree.tostring(kml,pm1, pm2, pretty_print=True)
+city = db.city
 
 
-s = "KML.kml(name, open, style"
-
-placemarks = []
-
-for i in range(len(placemarks)):
-  s += ", placemarks[i]"
-
-s += ")"
-
-kml_result = eval(s)
+coord_Hawaii = city.find_one({"name": "Hawaii"})["coordinates"]
 
 
+record_no = city.count()
 
+check_point = open('check_point.txt','r')
 
+check_point_version = check_point.read()
 
+if int(record_no) > int(check_point_version):
+
+	print "======== Generate New KML File ========"
+	coord = KML.coordinates(coord_Hawaii)
+	point = KML.Point(coord)
+	descrip = KML.description("Attached to the ground.")
+	name = KML.name("Simple placemark")
+	placemark = KML.Placemark(name,descrip,point)
+	kml = KML.kml(placemark)
+
+	content_kml = etree.tostring(kml, pretty_print=True)
+
+	print etree.tostring(kml, pretty_print=True)
+
+	fo = open("placemark.kml","wb")
+	fo.write(content_kml)
+	fo.close()
